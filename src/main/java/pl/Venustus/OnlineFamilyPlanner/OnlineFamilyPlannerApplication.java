@@ -2,7 +2,6 @@ package pl.Venustus.OnlineFamilyPlanner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import pl.Venustus.OnlineFamilyPlanner.Domain.Day;
 
 @SpringBootApplication
 public class OnlineFamilyPlannerApplication {

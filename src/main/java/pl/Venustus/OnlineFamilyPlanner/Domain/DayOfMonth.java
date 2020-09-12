@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @AllArgsConstructor
-public class Day {
+public class DayOfMonth {
     private Integer id;
     private Integer dayNumber;
     private String shortDesc;
