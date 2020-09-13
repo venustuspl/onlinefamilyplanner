@@ -19,10 +19,5 @@ public class DayOfMonth {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "DESC")
-    private String shortDesc;
-
-    @Column(name = "NOTE")
-    private String note;
 
 }
