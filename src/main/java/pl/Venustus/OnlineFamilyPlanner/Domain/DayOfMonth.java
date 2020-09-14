@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.*;
 
 @Setter
@@ -18,6 +19,12 @@ public class DayOfMonth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "STATUS")
+    private String status;
+
+    @Column(name = "DESCRIPTION")
+    private String description;
 
 
 }
