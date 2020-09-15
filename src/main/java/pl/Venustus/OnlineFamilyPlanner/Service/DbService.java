@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonth;
 import pl.Venustus.OnlineFamilyPlanner.Repository.DayOfMonthRepository;
 
+import java.util.List;
+
 
 @Service
 public class DbService {
@@ -14,5 +16,9 @@ public class DbService {
 
     public DayOfMonth saveDayOfMonth(final DayOfMonth DayOfMonth) {
         return dayOfMonthRepository.save(DayOfMonth);
+    }
+
+    public List<DayOfMonth> getAllDayOfMonth() {
+        return dayOfMonthRepository.findAll();
     }
 }
