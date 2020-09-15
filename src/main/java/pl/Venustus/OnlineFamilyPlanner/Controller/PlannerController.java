@@ -17,19 +17,13 @@ public class PlannerController {
     @Autowired
     private DbService dbService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @RequestMapping(method = RequestMethod.GET, value = "/getalldayofmonth")
     @ResponseBody
-    public String getStartPage() {
+    public List<DayOfMonth> getAllDayOfMonth() {
         dbService.saveDayOfMonth(dayOfMonth);
         dbService.saveDayOfMonth(dayOfMonth1);
         dbService.saveDayOfMonth(dayOfMonth2);
 
-        return "start";
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/getalldayofmonth")
-    @ResponseBody
-    public List<DayOfMonth> getAllDayOfMonth() {
         return dbService.getAllDayOfMonth();
 
     }
@@ -37,7 +31,7 @@ public class PlannerController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/loggeduser")
     public String getIndexPage() {
-        return "index";
+        return "";
     }
 
 
