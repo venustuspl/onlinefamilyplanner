@@ -6,6 +6,7 @@ import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonth;
 import pl.Venustus.OnlineFamilyPlanner.Service.DbService;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -22,12 +23,20 @@ public class PlannerController {
     public List<DayOfMonth> getAllDayOfMonth() {
         dbService.saveDayOfMonth(dayOfMonth);
         dbService.saveDayOfMonth(dayOfMonth1);
-        dbService.saveDayOfMonth(dayOfMonth2);
+
 
         return dbService.getAllDayOfMonth();
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/getalldayofmonthbyeach")
+    @ResponseBody
+    public Optional<DayOfMonth> getAllDayOfMonthByEach(@RequestParam("day") Long id) {
+        dbService.saveDayOfMonth(dayOfMonth2);
+
+        return dbService.getDayOfMonthByEach(id);
+
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/loggeduser")
     public String getIndexPage() {

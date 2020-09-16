@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonth;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DayOfMonthRepository extends CrudRepository<DayOfMonth, Long> {
@@ -16,4 +17,5 @@ public interface DayOfMonthRepository extends CrudRepository<DayOfMonth, Long> {
     @Override
     List<DayOfMonth> findAll();
 
+    Optional<DayOfMonth> findAllById(Long id);
 }

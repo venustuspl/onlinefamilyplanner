@@ -6,11 +6,11 @@ import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonth;
 import pl.Venustus.OnlineFamilyPlanner.Repository.DayOfMonthRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 public class DbService {
-
     @Autowired
     DayOfMonthRepository dayOfMonthRepository;
 
@@ -21,4 +21,10 @@ public class DbService {
     public List<DayOfMonth> getAllDayOfMonth() {
         return dayOfMonthRepository.findAll();
     }
+
+    public Optional<DayOfMonth> getDayOfMonthByEach(Long id) {
+        return dayOfMonthRepository.findAllById(id);
+    }
+
+
 }

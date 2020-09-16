@@ -38,3 +38,36 @@ fetch('getalldayofmonth')
     });
 
 }
+
+function getalldayofmonthbyeach(){
+var day;
+var step;
+
+for (step = 1; step < 3; step++) {
+    day = document.getElementById("day" + step);
+
+fetch('getalldayofmonthbyeach?day=' + step)
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function (data) {
+        let rates = data; // Get the results
+        return rates.map(function (rate) { // Map through the results and for each run the code below
+            let li = createNode('li'), //  Create the elements we need
+            span = createNode('span');
+            li.innerHTML = rate.id + ' ' + rate.status +' '+ rate.description; // Make the HTML of our span to be the first and last name of our author
+            append(li, span);
+            append(day, li);
+        })
+    });
+
+}
+}
+
+function start(){
+    getalldayofmonth();
+    getalldayofmonthbyeach();
+
+}
+
+function geteachday(){
+
+}
