@@ -12,16 +12,15 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/")
 public class PlannerController {
-    DayOfMonth dayOfMonth = new DayOfMonth((long) 1, "WORK", "15:30");
-    DayOfMonth dayOfMonth1 = new DayOfMonth((long) 2, "FREE", "");
-    DayOfMonth dayOfMonth2 = new DayOfMonth((long) 3, "WORK", "07:00");
+    DayOfMonth dayOfMonth = new DayOfMonth((long) 1, "WORK1", "15:30");
+    DayOfMonth dayOfMonth1 = new DayOfMonth((long) 2, "FREE2", "");
+    DayOfMonth dayOfMonth2 = new DayOfMonth((long) 3, "WORK3", "07:00");
     @Autowired
     private DbService dbService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/getalldayofmonth")
     @ResponseBody
     public List<DayOfMonth> getAllDayOfMonth() {
-
 
 
         return dbService.getAllDayOfMonth();

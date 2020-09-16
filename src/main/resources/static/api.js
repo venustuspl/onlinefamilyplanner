@@ -1,3 +1,6 @@
+var day;
+var step;
+
 function createNode(element) {
     return document.createElement(element); // Create the type of element you pass in the parameters
 }
@@ -40,15 +43,12 @@ fetch('getalldayofmonth')
 }
 
 function getalldayofmonthbyeach(){
-var day;
-var step;
 
-for (step = 1; step < 3; step++) {
+
+for (step = 1; step < 4; step++) {
     day = document.getElementById("day" + step);
+geteachday(day,step);
 
-fetch('getalldayofmonthbyeach?day=' + step)
-    .then(response => response.text())
-    .then(text => day.innerHTML = text);
 
 }
 }
@@ -59,6 +59,11 @@ function start(){
 
 }
 
-function geteachday(){
+function geteachday(day, step){
+fetch('getalldayofmonthbyeach?day=' + step)
+    .then(response => response.text())
+    .then(text => day.innerHTML = text);
+console.log(step);
+console.log(day);
 
 }
