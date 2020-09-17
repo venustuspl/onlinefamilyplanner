@@ -26,5 +26,8 @@ public class DayOfMonth {
     @Column(name = "DESCRIPTION")
     private String description;
 
+    @Column(name = "note")
+    private String note;
+
 
 }
