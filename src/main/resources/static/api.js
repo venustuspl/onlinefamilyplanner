@@ -73,12 +73,9 @@ fetch('getalldayofmonthbyeach')
     .then(function (data) {
         let rates = data; // Get the results
         return rates.map(function (rate) { // Map through the results and for each run the code below
-            let li = createNode('li'), //  Create the elements we need
-            span = createNode('span');
-            li.innerHTML = rate.id + ' ' + rate.status +' '+ rate.description; // Make the HTML of our span to be the first and last name of our author
             append(rate.status, li);
-            append(rate.status, li);
-            append(rate.status, li);
+            append(rate.description, li);
+            append(rate.note, li);
         })
     });
 
