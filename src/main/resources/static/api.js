@@ -54,8 +54,11 @@ geteachday(day,step);
 }
 
 function start(){
-    getalldayofmonth();
-    getalldayofmonthbyeach();
+    getalldayofmonth2();
+    console.log("start");
+    //getalldayofmonth();
+    //getalldayofmonthbyeach();
+
 
 }
 
@@ -63,20 +66,30 @@ function geteachday(day, step){
 fetch('getalldayofmonthbyeach?day=' + step)
     .then(response => response.text())
     .then(text => day.innerHTML = text);
+
+
 console.log(step);
 console.log(day);
 
 }
 
-fetch('getalldayofmonthbyeach')
+function getalldayofmonth2(){
+var i = 1;
+
+fetch('getalldayofmonth')
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (data) {
         let rates = data; // Get the results
         return rates.map(function (rate) { // Map through the results and for each run the code below
-            append(rate.status, li);
-            append(rate.description, li);
-            append(rate.note, li);
-        })
+            document.getElementById( "day" + i + "status").value = rate.status;
+            document.getElementById( "day" + i + "description").value = rate.description;
+            document.getElementById( "day" + i + "note").value = rate.note;
+            console.log(rate.status);
+            console.log(rate.description);
+            console.log(rate.note);
+            console.log("day" + i + "status");
+            i++;
+                  })
     });
 
 }
