@@ -7,6 +7,7 @@ import pl.Venustus.OnlineFamilyPlanner.Repository.DayOfMonthRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -24,6 +25,13 @@ public class DbService {
 
     public Optional<DayOfMonth> getDayOfMonthByEach(Long id) {
         return dayOfMonthRepository.findAllById(id);
+    }
+
+    public List<DayOfMonth> saveDayOfMonthList(List<DayOfMonth> dayOfMonthList) {
+        return dayOfMonthList.stream()
+                .map(d -> dayOfMonthRepository.save(d))
+                .collect(Collectors.toList());
+
     }
 
 
