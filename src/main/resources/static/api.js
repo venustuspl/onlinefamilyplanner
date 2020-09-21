@@ -113,3 +113,9 @@ function getcalendardays(){
 
 }
 
+function savedata(){
+fetch('save')
+    .then((resp) => resp.json()) ;
+
+}
+
