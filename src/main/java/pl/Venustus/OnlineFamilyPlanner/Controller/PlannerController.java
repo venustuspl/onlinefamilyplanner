@@ -45,8 +45,13 @@ public class PlannerController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/save", consumes = APPLICATION_JSON_VALUE)
-    public List<DayOfMonth> saveDayOfMonthDtoList(@RequestBody List<DayOfMonthDto> dayOfMonthDtoList) {
-        return dbService.saveDayOfMonthList(dayOfMonthMapper.mapToDaYMonthList(dayOfMonthDtoList));
+    public
+        //List<DayOfMonth>
+    void saveDayOfMonthDtoList(@RequestBody List<DayOfMonthDto> dayOfMonthDtoList) {
+        for (Object day : dayOfMonthDtoList) {
+            System.out.println(day);
+        }
+        //return dbService.saveDayOfMonthList(dayOfMonthMapper.mapToDaYMonthList(dayOfMonthDtoList));
 
     }
 

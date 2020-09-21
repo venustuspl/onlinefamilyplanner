@@ -98,23 +98,66 @@ fetch('getalldayofmonth')
 function getcalendardays(){
 
     const now = new Date();
-    //console.log(now);
-    console.log(now.getMonth());
-    console.log(now.getYear());
     someDateAsString = new Date(now.getFullYear(), now.getMonth(), 1);
-    console.log(someDateAsString);
     var calendarday = someDateAsString.getDay();
 
     const days = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
-    console.log(days[calendarday]);
+
     for (step = 1; step < 32; step++) {
         document.getElementById("day" + step + "name").value = days[calendarday + step - 1];
     }
 
 }
 
-function savedata(){
-fetch('save')
+class DayOfMonth {
+      constructor(id, status) {
+        this.id = id;
+        this.status = status;
+      }
+}
+
+
+
+
+
+
+function savedata() {
+    var dayOfMonthDtoList = [
+        { "id": "1", "stauts": "yellow", "description":  "a", "note": "a"},
+        { "id": "2", "stauts": "yellow2", "description":  "a2", "note": "a2"}
+    ];
+    console.log(dayOfMonthDtoList[0]);
+    dayOfMonthDtoList = JSON.stringify({ 'dayOfMonthDtoList': dayOfMonthDtoList });
+
+jQuery.ajax ({
+    url: "/save",
+    type: "POST",
+    data: JSON.stringify({data: dayOfMonthDtoList}),
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    success: function(){
+        //
+    }
+});
+}
+
+
+
+function savedata2(){
+tab = [];
+for (step = 1; step < 3; step++) {
+    tab.push( new DayOfMonth(step, document.getElementById( "day" + step + "status").value));
+
+
+}
+console.log(tab[0]);
+//console.log(tab[1]);
+
+const result = JSON.parse(tab[0]);
+
+console.log(result);
+
+fetch('save/' + result)
     .then((resp) => resp.json()) ;
 
 }
