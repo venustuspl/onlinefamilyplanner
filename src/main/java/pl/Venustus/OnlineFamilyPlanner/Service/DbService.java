@@ -15,10 +15,6 @@ public class DbService {
     @Autowired
     DayOfMonthRepository dayOfMonthRepository;
 
-    public DayOfMonth saveDayOfMonth(final DayOfMonth DayOfMonth) {
-        return dayOfMonthRepository.save(DayOfMonth);
-    }
-
     public List<DayOfMonth> getAllDayOfMonth() {
         return dayOfMonthRepository.findAll();
     }
@@ -31,6 +27,11 @@ public class DbService {
         return dayOfMonthList.stream()
                 .map(d -> dayOfMonthRepository.save(d))
                 .collect(Collectors.toList());
+
+    }
+
+    public DayOfMonth saveDayOfMonth(DayOfMonth dayOfMonth) {
+        return dayOfMonthRepository.save(dayOfMonth);
 
     }
 
