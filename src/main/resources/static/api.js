@@ -120,25 +120,21 @@ class DayOfMonth {
 
 
 
-
 function savedata() {
     var dayOfMonthDtoList = [
         { "id": "1", "stauts": "yellow", "description":  "a", "note": "a"},
         { "id": "2", "stauts": "yellow2", "description":  "a2", "note": "a2"}
     ];
+    var link = "/save?{ \"id\": 5, \"stauts\": \"yellow\", \"description\":  \"a\", \"note\": \"a\"}"
     console.log(dayOfMonthDtoList[0]);
     dayOfMonthDtoList = JSON.stringify({ 'dayOfMonthDtoList': dayOfMonthDtoList });
-
-jQuery.ajax ({
-    url: "/save",
-    type: "POST",
-    data: JSON.stringify({data: dayOfMonthDtoList}),
-    dataType: "json",
-    contentType: "application/json; charset=utf-8",
-    success: function(){
-        //
-    }
-});
+fetch(link)
+    .then((resp) => resp.json())
+        .then(function (data) {
+            let rates = data; // Get the results
+            return rates.map(function (rate) { // Map through the results and for each run the code below
+                                      })
+        });
 }
 
 
