@@ -116,10 +116,6 @@ class DayOfMonth {
       }
 }
 
-
-
-
-
 function savedata() {
     var dayOfMonthDtoList = [
         { "id": "1", "stauts": "yellow", "description":  "a", "note": "a"},
@@ -136,8 +132,6 @@ fetch(link)
                                       })
         });
 }
-
-
 
 function savedata2(){
 tab = [];
