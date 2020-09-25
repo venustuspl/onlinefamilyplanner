@@ -40,6 +40,9 @@ dependencies {
 
 	compile group: 'org.enumerable', name: 'enumerable-java', version: '0.4.0'
 
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.2'
+
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

@@ -117,20 +117,27 @@ class DayOfMonth {
 }
 
 function savedata() {
-    var dayOfMonthDtoList = [
-        { "id": "1", "stauts": "yellow", "description":  "a", "note": "a"},
-        { "id": "2", "stauts": "yellow2", "description":  "a2", "note": "a2"}
-    ];
-    var link = "/save?{ \"id\": 5, \"stauts\": \"yellow\", \"description\":  \"a\", \"note\": \"a\"}"
-    console.log(dayOfMonthDtoList[0]);
-    dayOfMonthDtoList = JSON.stringify({ 'dayOfMonthDtoList': dayOfMonthDtoList });
-fetch(link)
-    .then((resp) => resp.json())
-        .then(function (data) {
-            let rates = data; // Get the results
-            return rates.map(function (rate) { // Map through the results and for each run the code below
-                                      })
-        });
+    var ob =  { id: 1, stauts: "yellow", description:  "a", note: "a"};
+
+var data = new FormData();
+data.append( "json", JSON.stringify( ob ) );
+
+$.ajax({
+    type: "POST",
+    url: "/save",
+    data: JSON.stringify({"id": "8", "status": "yellow", "description":  "aa", "note": "aaa"}),
+    headers: {
+    'Accept': 'text/plain, application/json, application/*+json, */*',
+    'Content-Type': 'application/json'
+    },
+         success: function(data) {
+           if (data.status == 'OK')
+             console.log('Person has been added');
+           else
+           console.log(data);
+             console.log('Failed adding person: ' + data.status + ', ' + data.errorMessage);
+     }})
+
 }
 
 function savedata2(){
