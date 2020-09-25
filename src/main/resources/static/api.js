@@ -122,10 +122,22 @@ function savedata() {
 var data = new FormData();
 data.append( "json", JSON.stringify( ob ) );
 
+var day1 = {"id": "1", "status": "yellow", "description":  "aa", "note": "aaa"};
+var day2 = {"id": "2", "status": "yellow2", "description":  "aa2", "note": "aaa2"};
+
+saveeachday(day1);
+saveeachday(day2);
+
+
+
+}
+
+function saveeachday(day){
+
 $.ajax({
     type: "POST",
     url: "/save",
-    data: JSON.stringify({"id": "8", "status": "yellow", "description":  "aa", "note": "aaa"}),
+    data: JSON.stringify(day),
     headers: {
     'Accept': 'text/plain, application/json, application/*+json, */*',
     'Content-Type': 'application/json'
@@ -137,7 +149,6 @@ $.ajax({
            console.log(data);
              console.log('Failed adding person: ' + data.status + ', ' + data.errorMessage);
      }})
-
 }
 
 function savedata2(){

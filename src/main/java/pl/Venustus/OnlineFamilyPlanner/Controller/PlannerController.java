@@ -29,9 +29,9 @@ public class PlannerController {
     @RequestMapping(method = RequestMethod.GET, value = "/getalldayofmonth")
     @ResponseBody
     public List<DayOfMonth> getAllDayOfMonth() {
-        dbService.saveDayOfMonth(dayOfMonth);
-        dbService.saveDayOfMonth(dayOfMonth1);
-        dbService.saveDayOfMonth(dayOfMonth2);
+        //  dbService.saveDayOfMonth(dayOfMonth);
+        // dbService.saveDayOfMonth(dayOfMonth1);
+        //  dbService.saveDayOfMonth(dayOfMonth2);
 
         return dbService.getAllDayOfMonth();
 
