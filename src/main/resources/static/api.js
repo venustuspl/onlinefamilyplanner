@@ -123,7 +123,7 @@ var data = new FormData();
 data.append( "json", JSON.stringify( ob ) );
 
 var day1 = {"id": "1", "status": "yellow", "description":  "aa", "note": "aaa"};
-var day2 = {"id": "2", "status": "yellow2", "description":  "aa2", "note": "aaa2"};
+var day2 = {"id": "2", "status": document.getElementById( "day2status").value, "description":  document.getElementById( "day2description").value, "note": "aaa2"};
 
 saveeachday(day1);
 saveeachday(day2);
