@@ -85,10 +85,10 @@ fetch('getalldayofmonth')
             document.getElementById( "day" + i + "status").value = rate.status;
             document.getElementById( "day" + i + "description").value = rate.description;
             document.getElementById( "day" + i + "note").value = rate.note;
-           // console.log(rate.status);
-            //console.log(rate.description);
-            //console.log(rate.note);
-            //console.log("day" + i + "status");
+            console.log(rate.status);
+           console.log(rate.description);
+           console.log(rate.note);
+           console.log("day" + i + "status");
             i++;
                   })
     });
@@ -117,16 +117,20 @@ class DayOfMonth {
 }
 
 function savedata() {
-    var ob =  { id: 1, stauts: "yellow", description:  "a", note: "a"};
+//    var ob =  { id: 1, stauts: "yellow", description:  "a", note: "a"};
+//
+//var data = new FormData();
+//data.append( "json", JSON.stringify( ob ) );
+//var day = {"id": 1, "status": "Status", "description":  "Description", "note": "Note"};
 
-var data = new FormData();
-data.append( "json", JSON.stringify( ob ) );
+for (step = 1; step < 32; step++) {
 
-var day1 = {"id": "1", "status": "yellow", "description":  "aa", "note": "aaa"};
-var day2 = {"id": "2", "status": document.getElementById( "day2status").value, "description":  document.getElementById( "day2description").value, "note": "aaa2"};
+var day = {"id": step, "status": document.getElementById( "day" + step + "status").value,
+        "description":  document.getElementById( "day" + step + "description").value,
+        "note": document.getElementById( "day" + step + "note").value};
 
-saveeachday(day1);
-saveeachday(day2);
+saveeachday(day);
+}
 
 
 
@@ -135,7 +139,7 @@ saveeachday(day2);
 function saveeachday(day){
 
 $.ajax({
-    type: "POST",
+    type: "PUT",
     url: "/save",
     data: JSON.stringify(day),
     headers: {
