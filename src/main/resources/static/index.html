@@ -23,6 +23,7 @@
   border: none;
   background-color: white;
   text-color: white;
+  text-align: center;
 }
 
 input[type=text]{
@@ -33,12 +34,16 @@ input[type=text]{
   border: none;
   background-color: yellow;
   text-color: yellow;
+  text-transform: capitalize;
+  text-align: left;
+
 }
 
     table, tr, th, td {
     background-color: fuchsia;
 
     }
+
 
 
 
@@ -58,252 +63,345 @@ input[type=text]{
 <div id="tablespace" style="overflow-x:auto;">
     <table border="1" id="dayofmonthtable">
         <tr>
-            <td>Status dnia | Godzina rozpoczęcia | Opis</td>
+            <td>Day status | Short description | Note</td>
         </tr>
         <tr>
             <td id="day1box">
-                <div id="day1">1 <input type="text" id="day1name"></div>
-                <input id="day1status" value="Status">
+                <div id="day1">1 <input id="day1name" readonly type="text"></div>
+                <select id="day1status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day1description" value="Description">
                 <input id="day1note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day2box">
-                <div id="day2">2 <input id="day2name"></div>
-                <input id="day2status" value="Status">
+                <div id="day2">2 <input id="day2name" readonly type="text"></div>
+                <select id="day2status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day2description" value="Description">
                 <input id="day2note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day3box">
-                <div id="day3">3 <input id="day3name"></div>
-                <input id="day3status" value="Status">
+                <div id="day3">3 <input id="day3name" readonly type="text"></div>
+                <select id="day3status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day3description" value="Description">
                 <input id="day3note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day4box">
-                <div id="day4">4 <input id="day4name"></div>
-                <input id="day4status" value="Status">
+                <div id="day4">4 <input id="day4name" readonly type="text"></div>
+                <select id="day4status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day4description" value="Description">
                 <input id="day4note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day5box">
-                <div id="day5">5 <input id="day5name"></div>
-                <input id="day5status" value="Status">
+                <div id="day5">5 <input id="day5name" readonly type="text"></div>
+                <select id="day5status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day5description" value="Description">
                 <input id="day5note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day6box">
-                <div id="day6">6 <input id="day6name"></div>
-                <input id="day6status" value="Status">
+                <div id="day6">6 <input id="day6name" readonly type="text"></div>
+                <select id="day6status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day6description" value="Description">
                 <input id="day6note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day7box">
-                <div id="day7">7 <input id="day7name"></div>
-                <input id="day7status" value="Status">
+                <div id="day7">7 <input id="day7name" readonly type="text"></div>
+                <select id="day7status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day7description" value="Description">
                 <input id="day7note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day8box">
-                <div id="day8">8 <input id="day8name"></div>
-                <input id="day8status" value="Status">
+                <div id="day8">8 <input id="day8name" readonly type="text"></div>
+                <select id="day8status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day8description" value="Description">
                 <input id="day8note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day9box">
-                <div id="day9">9 <input id="day9name"></div>
-                <input id="day9status" value="Status">
+                <div id="day9">9 <input id="day9name" readonly type="text"></div>
+                <select id="day9status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day9description" value="Description">
                 <input id="day9note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day10box">
-                <div id="day10">10 <input id="day10name"></div>
-                <input id="day10status" value="Status">
+                <div id="day10">10 <input id="day10name" readonly type="text"></div>
+                <select id="day10status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day10description" value="Description">
                 <input id="day10note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day11box">
-                <div id="day11">11 <input id="day11name"></div>
-                <input id="day11status" value="Status">
+                <div id="day11">11 <input id="day11name" readonly type="text"></div>
+                <select id="day11status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day11description" value="Description">
                 <input id="day11note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day12box">
-                <div id="day12">12 <input id="day12name"></div>
-                <input id="day12status" value="Status">
+                <div id="day12">12 <input id="day12name" readonly type="text"></div>
+                <select id="day12status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day12description" value="Description">
                 <input id="day12note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day13box">
-                <div id="day13">13 <input id="day13name"></div>
-                <input id="day13status" value="Status">
+                <div id="day13">13 <input id="day13name" readonly type="text"></div>
+                <select id="day13status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day13description" value="Description">
                 <input id="day13note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day14box">
-                <div id="day14">14 <input id="day14name"></div>
-                <input id="day14status" value="Status">
+                <div id="day14">14 <input id="day14name" readonly type="text"></div>
+                <select id="day14status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day14description" value="Description">
                 <input id="day14note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day15box">
-                <div id="day15">15 <input id="day15name"></div>
-                <input id="day15status" value="Status">
+                <div id="day15">15 <input id="day15name" readonly type="text"></div>
+                <select id="day15status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day15description" value="Description">
                 <input id="day15note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day16box">
-                <div id="day16">16 <input id="day16name"></div>
-                <input id="day16status" value="Status">
+                <div id="day16">16 <input id="day16name" readonly type="text"></div>
+                <select id="day16status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day16description" value="Description">
                 <input id="day16note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day17box">
-                <div id="day17">17 <input id="day17name"></div>
-                <input id="day17status" value="Status">
+                <div id="day17">17 <input id="day17name" readonly type="text"></div>
+                <select id="day17status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day17description" value="Description">
                 <input id="day17note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day18box">
-                <div id="day18">18 <input id="day18name"></div>
-                <input id="day18status" value="Status">
+                <div id="day18">18 <input id="day18name" readonly type="text"></div>
+                <select id="day18status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day18description" value="Description">
                 <input id="day18note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day19box">
-                <div id="day19">19 <input id="day19name"></div>
-                <input id="day19status" value="Status">
+                <div id="day19">19 <input id="day19name" readonly type="text"></div>
+                <select id="day19status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day19description" value="Description">
                 <input id="day19note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day20box">
-                <div id="day20">20 <input id="day20name"></div>
-                <input id="day20status" value="Status">
+                <div id="day20">20 <input id="day20name" readonly type="text"></div>
+                <select id="day20status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day20description" value="Description">
                 <input id="day20note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day21box">
-                <div id="day21">21 <input id="day21name"></div>
-                <input id="day21status" value="Status">
+                <div id="day21">21 <input id="day21name" readonly type="text"></div>
+                <select id="day21status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day21description" value="Description">
                 <input id="day21note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day22box">
-                <div id="day22">22 <input id="day22name"></div>
-                <input id="day22status" value="Status">
+                <div id="day22">22 <input id="day22name" readonly type="text"></div>
+                <select id="day22status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day22description" value="Description">
                 <input id="day22note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day23box">
-                <div id="day23">23 <input id="day23name"></div>
-                <input id="day23status" value="Status">
+                <div id="day23">23 <input id="day23name" readonly type="text"></div>
+                <select id="day23status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day23description" value="Description">
                 <input id="day23note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day24box">
-                <div id="day24">24 <input id="day24name"></div>
-                <input id="day24status" value="Status">
+                <div id="day24">24 <input id="day24name" readonly type="text"></div>
+                <select id="day24status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day24description" value="Description">
                 <input id="day24note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day25box">
-                <div id="day25">25 <input id="day25name"></div>
-                <input id="day25status" value="Status">
+                <div id="day25">25 <input id="day25name" readonly type="text"></div>
+                <select id="day25status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day25description" value="Description">
                 <input id="day25note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day26box">
-                <div id="day26">26 <input id="day26name"></div>
-                <input id="day26status" value="Status">
+                <div id="day26">26 <input id="day26name" readonly type="text"></div>
+                <select id="day26status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day26description" value="Description">
                 <input id="day26note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day27box">
-                <div id="day27">27 <input id="day27name"></div>
-                <input id="day27status" value="Status">
+                <div id="day27">27 <input id="day27name" readonly type="text"></div>
+                <select id="day27status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day27description" value="Description">
                 <input id="day27note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day28box">
-                <div id="day28">28 <input id="day28name"></div>
-                <input id="day28status" value="Status">
+                <div id="day28">28 <input id="day28name" readonly type="text"></div>
+                <select id="day28status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day28description" value="Description">
                 <input id="day28note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day29box">
-                <div id="day29">29 <input id="day29name"></div>
-                <input id="day29status" value="Status">
+                <div id="day29">29 <input id="day29name" readonly type="text"></div>
+                <select id="day29status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day29description" value="Description">
                 <input id="day29note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day30box">
-                <div id="day30">30 <input id="day30name"></div>
-                <input id="day30status" value="Status">
+                <div id="day30">30 <input id="day30name" readonly type="text"></div>
+                <select id="day30status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day30description" value="Description">
                 <input id="day30note" value="Note">
             </td>
         </tr>
         <tr>
             <td id="day31box">
-                <div id="day31">31 <input id="day31name"></div>
-                <input id="day31status" value="Status">
+                <div id="day31">31 <input id="day31name" readonly type="text"></div>
+                <select id="day31status">
+                    <option value="WORK">WORK</option>
+                    <option value="FREE">FREE</option>
+                </select>
                 <input id="day31description" value="Description">
                 <input id="day31note" value="Note">
             </td>
