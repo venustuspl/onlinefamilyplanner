@@ -92,7 +92,7 @@ function getcalendardays(){
     const days = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
 
     for (step = 1; step < 32; step++) {
-        document.getElementById("day" + step + "name").value = days[calendarday + step - 1] + step;
+        document.getElementById("day" + step + "name").value = days[calendarday + step - 1] ;
     }
 
 }
