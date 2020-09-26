@@ -43,31 +43,23 @@ fetch('getalldayofmonth')
 }
 
 function getalldayofmonthbyeach(){
-
-
-for (step = 1; step < 4; step++) {
+for (step = 1; step < 32; step++) {
     day = document.getElementById("day" + step);
 geteachday(day,step);
-
 
 }
 }
 
 function start(){
     getalldayofmonth2();
-    console.log("start");
     getcalendardays();
-    //getalldayofmonth();
-    //getalldayofmonthbyeach();
-
-
+    console.log("start");
 }
 
 function geteachday(day, step){
 fetch('getalldayofmonthbyeach?day=' + step)
     .then(response => response.text())
     .then(text => day.innerHTML = text);
-
 
 console.log(step);
 console.log(day);
@@ -85,10 +77,6 @@ fetch('getalldayofmonth')
             document.getElementById( "day" + i + "status").value = rate.status;
             document.getElementById( "day" + i + "description").value = rate.description;
             document.getElementById( "day" + i + "note").value = rate.note;
-            console.log(rate.status);
-           console.log(rate.description);
-           console.log(rate.note);
-           console.log("day" + i + "status");
             i++;
                   })
     });
@@ -104,7 +92,7 @@ function getcalendardays(){
     const days = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota","Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
 
     for (step = 1; step < 32; step++) {
-        document.getElementById("day" + step + "name").value = days[calendarday + step - 1];
+        document.getElementById("day" + step + "name").value = days[calendarday + step - 1] + step;
     }
 
 }
@@ -117,27 +105,16 @@ class DayOfMonth {
 }
 
 function savedata() {
-//    var ob =  { id: 1, stauts: "yellow", description:  "a", note: "a"};
-//
-//var data = new FormData();
-//data.append( "json", JSON.stringify( ob ) );
-//var day = {"id": 1, "status": "Status", "description":  "Description", "note": "Note"};
+    for (step = 1; step < 32; step++) {
 
-for (step = 1; step < 32; step++) {
-
-var day = {"id": step, "status": document.getElementById( "day" + step + "status").value,
+    var day = {"id": step, "status": document.getElementById( "day" + step + "status").value,
         "description":  document.getElementById( "day" + step + "description").value,
         "note": document.getElementById( "day" + step + "note").value};
-
-saveeachday(day);
-}
-
-
-
-}
+    console.log(day);
+    saveeachday(day);
+}}
 
 function saveeachday(day){
-
 $.ajax({
     type: "PUT",
     url: "/save",
@@ -147,30 +124,12 @@ $.ajax({
     'Content-Type': 'application/json'
     },
          success: function(data) {
-           if (data.status == 'OK')
-             console.log('Person has been added');
-           else
-           console.log(data);
-             console.log('Failed adding person: ' + data.status + ', ' + data.errorMessage);
+//           if (data.status == 'OK')
+//             console.log('Person has been added');
+//           else
+//           console.log(data);
+//             console.log('Failed adding person: ' + data.status + ', ' + data.errorMessage);
      }})
 }
 
-function savedata2(){
-tab = [];
-for (step = 1; step < 3; step++) {
-    tab.push( new DayOfMonth(step, document.getElementById( "day" + step + "status").value));
-
-
-}
-console.log(tab[0]);
-//console.log(tab[1]);
-
-const result = JSON.parse(tab[0]);
-
-console.log(result);
-
-fetch('save/' + result)
-    .then((resp) => resp.json()) ;
-
-}
 
