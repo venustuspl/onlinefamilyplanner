@@ -51,6 +51,12 @@ public class PlannerController {
 
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "/clear")
+    public void clearMonth() {
+
+
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/loggeduser")
     public String getIndexPage() {
         return "";
