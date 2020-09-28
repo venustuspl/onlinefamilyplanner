@@ -1,76 +1,84 @@
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-
     <link href="favicon.ico" rel="shortcut icon"/>
     <title>Online family planner</title>
     <META CONTENT="Online Family Planner" NAME="KEYWORDS">
     <meta charset="UTF-8">
-
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
     <meta content="origin" name="referrer">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-
     <style>
-    input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  background-color: white;
-  text-align: center;
+         input {
+         width: 100%;
+         padding: 12px 20px;
+         margin: 8px 0;
+         box-sizing: border-box;
+         border: none;
+         background-color: white;
+         text-align: center;
+         }
+         input[type=text]{
+         width: 100%;
+         padding: 12px 20px;
+         margin: 8px 0;
+         box-sizing: border-box;
+         border: none;
+         background-color: yellow;
+         text-color: yellow;
+         text-transform: capitalize;
+         text-align: left;
+         }
+         select{
+         background-color: yellow;
+         text-color: blue;
+         }
+         option{
+         background-color: yellow;
+         text-color: blue;
+         }
+         table, tr, th, td {
+         background-color: fuchsia;
+         }
+         table{
+         width: 100%;
+         border-collapse: collapse;
+         border-spacing: 0;
+         margin-bottom: 1%;
+         border: 1;
+         }
+         button{
+         background-color: fuchsia;
+         text-color: blue;
+         align: right;
+        border: 1;
+        color: blue;
+        padding: 15px 32px;
+         text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width: 100%;
+
 }
-
-input[type=text]{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  background-color: yellow;
-  text-color: yellow;
-  text-transform: capitalize;
-  text-align: left;
-
-}
-select{
-    background-color: yellow;
-  text-color: blue;
-}
-option{
-    background-color: yellow;
-  text-color: blue;
-}
-    table, tr, th, td {
-    background-color: fuchsia;
-
-    }
-
-
-
 
     </style>
 </head>
-
 <body onload="start()"
-      style="background-color: white; background-image: url('');background-repeat: no-repeat;  background-position: center; ">
+      style="background-color: yellow; background-image: url('');background-repeat: no-repeat;  background-position: center; ">
 <div align="center" style="color: #ff6600">
     <h1>OnlineFamilyPlanner</h1>
     <h2>Plan your current month</h2>
     <hr>
 </div>
-<div id="days" align="center" style="color: #66ccff">
-</div>
+<div align="center" id="days" style="color: #66ccff"></div>
 <button id="savedatatop" onclick="savedata()">Save all changes</button>
 <div id="tablespace" style="overflow-x:auto;">
-    <table border="1" id="dayofmonthtable">
-        <tr>
-            <td>Day status | Short description | Note</td>
-        </tr>
+    <table id="dayofmonthtable">
         <tr>
             <td id="day1box">
                 <div id="day1">1 <input id="day1name" readonly type="text"></div>
@@ -82,6 +90,7 @@ option{
                 <input id="day1note" value="Note">
             </td>
         </tr>
+        <br>
         <tr>
             <td id="day2box">
                 <div id="day2">2 <input id="day2name" readonly type="text"></div>
