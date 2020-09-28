@@ -51,9 +51,9 @@ public class PlannerController {
 
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/clear")
+    @RequestMapping(method = RequestMethod.GET, value = "/clear")
     public void clearMonth() {
-
+        dbService.deletaAllDayOfMonth();
 
     }
 

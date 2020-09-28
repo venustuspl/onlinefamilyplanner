@@ -18,4 +18,8 @@ public interface DayOfMonthRepository extends CrudRepository<DayOfMonth, Long> {
     List<DayOfMonth> findAll();
 
     Optional<DayOfMonth> findAllById(Long id);
+
+
+    void deleteAll();
+
 }

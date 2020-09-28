@@ -35,5 +35,8 @@ public class DbService {
 
     }
 
+    public void deletaAllDayOfMonth() {
+        dayOfMonthRepository.deleteAll();
 
+    }
 }
