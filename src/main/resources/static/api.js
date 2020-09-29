@@ -74,9 +74,9 @@ fetch('getalldayofmonth')
     .then(function (data) {
         let rates = data; // Get the results
         return rates.map(function (rate) { // Map through the results and for each run the code below
-            document.getElementById( "day" + i + "status").value = rate.status;
-            document.getElementById( "day" + i + "description").value = rate.description;
-            document.getElementById( "day" + i + "note").value = rate.note;
+            document.getElementById( "day" + rate.id + "status").value = rate.status;
+            document.getElementById( "day" + rate.id + "description").value = rate.description;
+            document.getElementById( "day" + rate.id + "note").value = rate.note;
             i++;
                   })
     });
