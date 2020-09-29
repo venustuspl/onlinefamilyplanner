@@ -112,7 +112,10 @@ function savedata() {
         "note": document.getElementById( "day" + step + "note").value};
     console.log(day);
     saveeachday(day);
-}}
+}
+var datetime = new Date().toLocaleString();
+document.getElementById("savestatus").innerHTML = "Saved on: " + datetime;
+}
 
 function saveeachday(day){
 $.ajax({
