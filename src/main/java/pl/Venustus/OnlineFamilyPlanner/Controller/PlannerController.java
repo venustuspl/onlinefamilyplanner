@@ -57,9 +57,9 @@ public class PlannerController {
 
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/loggeduser")
+    @RequestMapping(value = "/loggeduser")
     public String getIndexPage() {
-        return "";
+        return "loggeduser";
     }
 
 
