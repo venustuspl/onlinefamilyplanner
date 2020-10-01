@@ -16,9 +16,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping("/")
 public class PlannerController {
-    DayOfMonth dayOfMonth = new DayOfMonth((long) 1, "WORK1", "15:30", "Nic");
-    DayOfMonth dayOfMonth1 = new DayOfMonth((long) 2, "FREE2", "", "Pusto");
-    DayOfMonth dayOfMonth2 = new DayOfMonth((long) 3, "WORK3", "07:00", "AJ");
 
     @Autowired
     private DbService dbService;
@@ -29,10 +26,6 @@ public class PlannerController {
     @RequestMapping(method = RequestMethod.GET, value = "/getalldayofmonth")
     @ResponseBody
     public List<DayOfMonth> getAllDayOfMonth() {
-        //  dbService.saveDayOfMonth(dayOfMonth);
-        // dbService.saveDayOfMonth(dayOfMonth1);
-        //  dbService.saveDayOfMonth(dayOfMonth2);
-
         return dbService.getAllDayOfMonth();
 
     }
@@ -59,9 +52,10 @@ public class PlannerController {
 
     @RequestMapping(value = "/loggeduser")
     public String getIndexPage() {
-        return "loggeduser.html";
-    }
+        return "/app.html";
 
+
+    }
 
 }
 

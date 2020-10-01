@@ -127,11 +127,7 @@ $.ajax({
     'Content-Type': 'application/json'
     },
          success: function(data) {
-//           if (data.status == 'OK')
-//             console.log('Person has been added');
-//           else
-//           console.log(data);
-//             console.log('Failed adding person: ' + data.status + ', ' + data.errorMessage);
+
      }})
 }
 
