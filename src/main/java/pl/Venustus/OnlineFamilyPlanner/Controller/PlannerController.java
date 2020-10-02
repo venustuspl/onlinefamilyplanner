@@ -54,7 +54,6 @@ public class PlannerController {
     public String getIndexPage() {
         return "/app.html";
 
-
     }
 
 }

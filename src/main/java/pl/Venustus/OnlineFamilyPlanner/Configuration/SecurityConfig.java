@@ -13,7 +13,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("admin")
-                .password("{noop}password")
+                .password("{noop}1234")
                 .roles("USER", "ADMIN");
     }
 
@@ -21,11 +21,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/", "/login**")
+                .antMatchers("/images**", "/**", "/login**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin();
     }
+
 }
