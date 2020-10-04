@@ -28,8 +28,10 @@ public class DayOfMonth {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "note")
+    @Column(name = "NOTE")
     private String note;
 
+    @Column(name = "SAVED")
+    private String saved;
 
 }

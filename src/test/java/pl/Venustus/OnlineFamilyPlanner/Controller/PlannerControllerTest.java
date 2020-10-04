@@ -18,8 +18,8 @@ class PlannerControllerTest {
         RestTemplate restTemplate = new RestTemplate();
         final String baseUrl = "http://localhost:8080/save";
         URI uri = new URI(baseUrl);
-        DayOfMonth day = new DayOfMonth((long) 4, "Maks", "aa", "aaa");
-        DayOfMonth day1 = new DayOfMonth((long) 5, "Tom", "aa", "aaa");
+        DayOfMonth day = new DayOfMonth((long) 4, "Maks", "aa", "aaa", "2020-01-01 01:01:01");
+        DayOfMonth day1 = new DayOfMonth((long) 5, "Tom", "aa", "aaa", "2020-01-01 01:01:01");
 
 //        HttpHeaders headers = new HttpHeaders();
 //        headers.set("X-COM-PERSIST", "true");

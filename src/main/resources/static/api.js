@@ -105,15 +105,17 @@ class DayOfMonth {
 }
 
 function savedata() {
-    for (step = 1; step < 32; step++) {
+var datetime = new Date().toLocaleString();
 
+    for (step = 1; step < 32; step++) {
     var day = {"id": step, "status": document.getElementById( "day" + step + "status").value,
         "description":  document.getElementById( "day" + step + "description").value,
-        "note": document.getElementById( "day" + step + "note").value};
+        "note": document.getElementById( "day" + step + "note").value, "saved": datetime };
     console.log(day);
     saveeachday(day);
+
 }
-var datetime = new Date().toLocaleString();
+
 document.getElementById("savestatus").innerHTML = "Saved on: " + datetime;
 }
 
