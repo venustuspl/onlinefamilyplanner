@@ -119,6 +119,7 @@ var datetime = new Date().toLocaleString();
 document.getElementById("savestatus").innerHTML = "Saved on: " + datetime;
 }
 
+
 function saveeachday(day){
 $.ajax({
     type: "PUT",
@@ -132,5 +133,7 @@ $.ajax({
 
      }})
 }
+
+
 
 

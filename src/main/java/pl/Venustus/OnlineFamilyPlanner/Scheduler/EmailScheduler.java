@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
 @Component
 public class EmailScheduler {
 
-    private static final String SUBJECT = "Offers details.";
+    private static final String SUBJECT = "Plan snapshot.";
     @Autowired
     private SimpleEmailService simpleEmailService;
 
     @Autowired
     private AdminConfig adminConfig;
 
-    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(cron = "*/10 * * * * *")
     public void sendInformationEmail() {
 
         simpleEmailService.send(new Mail(
@@ -27,6 +27,7 @@ public class EmailScheduler {
                 adminConfig.getAdminMail(),
                 SUBJECT,
                 "Changes was made on" + LocalDateTime.now()));
+        System.out.println("Message send.");
 
     }
 }
