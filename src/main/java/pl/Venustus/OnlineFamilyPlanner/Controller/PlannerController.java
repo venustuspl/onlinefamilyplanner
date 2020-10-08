@@ -2,11 +2,15 @@ package pl.Venustus.OnlineFamilyPlanner.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.Venustus.OnlineFamilyPlanner.Configuration.AdminConfig;
 import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonth;
 import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonthDto;
+import pl.Venustus.OnlineFamilyPlanner.Domain.Mail;
 import pl.Venustus.OnlineFamilyPlanner.Mapper.DayOfMonthMapper;
 import pl.Venustus.OnlineFamilyPlanner.Service.DbService;
+import pl.Venustus.OnlineFamilyPlanner.Service.SimpleEmailService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +26,12 @@ public class PlannerController {
 
     @Autowired
     private DayOfMonthMapper dayOfMonthMapper;
+
+    @Autowired
+    private SimpleEmailService simpleEmailService;
+
+    @Autowired
+    private AdminConfig adminConfig;
 
     @RequestMapping(method = RequestMethod.GET, value = "/getalldayofmonth")
     @ResponseBody
@@ -40,6 +50,12 @@ public class PlannerController {
     @RequestMapping(method = RequestMethod.PUT, value = "/save", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public DayOfMonth saveDayOfMonthDto(@RequestBody DayOfMonthDto dayOfMonthDto) {
         System.out.println(dayOfMonthDto);
+        simpleEmailService.send(new Mail(
+                //"venustus.pl@gmail.com",
+                adminConfig.getAdminMail(),
+                "Temacik",
+                "Changes was made on" + LocalDateTime.now()));
+        System.out.println("Message send.");
         return dbService.saveDayOfMonth(dayOfMonthMapper.mapToDaYMonth(dayOfMonthDto));
 
     }
