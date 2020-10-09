@@ -5,12 +5,11 @@ import org.springframework.web.bind.annotation.*;
 import pl.Venustus.OnlineFamilyPlanner.Configuration.AdminConfig;
 import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonth;
 import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonthDto;
-import pl.Venustus.OnlineFamilyPlanner.Domain.Mail;
 import pl.Venustus.OnlineFamilyPlanner.Mapper.DayOfMonthMapper;
 import pl.Venustus.OnlineFamilyPlanner.Service.DbService;
-import pl.Venustus.OnlineFamilyPlanner.Service.SimpleEmailService;
+import pl.Venustus.OnlineFamilyPlanner.Service.MailService;
 
-import java.time.LocalDateTime;
+import javax.mail.MessagingException;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,10 +27,9 @@ public class PlannerController {
     private DayOfMonthMapper dayOfMonthMapper;
 
     @Autowired
-    private SimpleEmailService simpleEmailService;
-
-    @Autowired
     private AdminConfig adminConfig;
+
+    private MailService mailService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/getalldayofmonth")
     @ResponseBody
@@ -50,11 +48,6 @@ public class PlannerController {
     @RequestMapping(method = RequestMethod.PUT, value = "/save", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public DayOfMonth saveDayOfMonthDto(@RequestBody DayOfMonthDto dayOfMonthDto) {
         System.out.println(dayOfMonthDto);
-        simpleEmailService.send(new Mail(
-                //"venustus.pl@gmail.com",
-                adminConfig.getAdminMail(),
-                "Temacik",
-                "Changes was made on" + LocalDateTime.now()));
         System.out.println("Message send.");
         return dbService.saveDayOfMonth(dayOfMonthMapper.mapToDaYMonth(dayOfMonthDto));
 
@@ -70,6 +63,19 @@ public class PlannerController {
     public String getIndexPage() {
         return "/app.html";
 
+    }
+
+    @Autowired
+    public void MailApi(MailService mailService) {
+        this.mailService = mailService;
+    }
+
+    @GetMapping("/sendMail")
+    public String sendMail() throws MessagingException {
+        mailService.sendMail("venustus.pl@gmail.com",
+                "Wygrałeś",
+                "<b>1000 000 zł</b><br>:P", true);
+        return "wysłano";
     }
 
 }
