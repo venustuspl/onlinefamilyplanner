@@ -7,9 +7,8 @@ import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonth;
 import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonthDto;
 import pl.Venustus.OnlineFamilyPlanner.Mapper.DayOfMonthMapper;
 import pl.Venustus.OnlineFamilyPlanner.Service.DbService;
-import pl.Venustus.OnlineFamilyPlanner.Service.MailService;
+import pl.Venustus.OnlineFamilyPlanner.Service.EmailServiceImpl;
 
-import javax.mail.MessagingException;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +28,6 @@ public class PlannerController {
     @Autowired
     private AdminConfig adminConfig;
 
-    private MailService mailService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/getalldayofmonth")
     @ResponseBody
@@ -55,6 +53,8 @@ public class PlannerController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/clear")
     public void clearMonth() {
+        EmailServiceImpl emailService = new EmailServiceImpl();
+        emailService.sendSimpleMessage("aa", "bb", "cc");
         dbService.deletaAllDayOfMonth();
 
     }
@@ -65,18 +65,7 @@ public class PlannerController {
 
     }
 
-    @Autowired
-    public void MailApi(MailService mailService) {
-        this.mailService = mailService;
-    }
 
-    @GetMapping("/sendMail")
-    public String sendMail() throws MessagingException {
-        mailService.sendMail("venustus.pl@gmail.com",
-                "Wygrałeś",
-                "<b>1000 000 zł</b><br>:P", true);
-        return "wysłano";
-    }
 
 }
 

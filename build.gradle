@@ -47,6 +47,9 @@ dependencies {
 	compile group: 'javax.mail', name: 'mail', version: '1.4'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.3.4.RELEASE'
 
+	compile group: 'org.springframework', name: 'spring-context-support', version: '5.2.9.RELEASE'
+
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
