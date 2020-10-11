@@ -18,7 +18,8 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    @Scheduled(cron = "*/10 * * * * *")
+    //https://crontab.guru/#*_*_*_*_*
+    @Scheduled(cron = "*/30 * * * * *")
     public void sendInformationEmail() {
         System.out.println("before Email");
         simpleEmailService.send(new Mail(
