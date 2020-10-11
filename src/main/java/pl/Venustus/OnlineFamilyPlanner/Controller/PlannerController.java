@@ -7,7 +7,6 @@ import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonth;
 import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonthDto;
 import pl.Venustus.OnlineFamilyPlanner.Mapper.DayOfMonthMapper;
 import pl.Venustus.OnlineFamilyPlanner.Service.DbService;
-import pl.Venustus.OnlineFamilyPlanner.Service.EmailServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -53,8 +52,6 @@ public class PlannerController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/clear")
     public void clearMonth() {
-        EmailServiceImpl emailService = new EmailServiceImpl();
-        emailService.sendSimpleMessage("aa", "bb", "cc");
         dbService.deletaAllDayOfMonth();
 
     }
