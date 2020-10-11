@@ -6,8 +6,5 @@ class EmailServiceImplTest {
 
     @Test
     void sendSimpleMessage() {
-        EmailServiceImpl emailService = new EmailServiceImpl();
-        emailService.sendSimpleMessage("aa", "bb", "cc");
-
     }
 }
