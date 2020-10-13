@@ -10,7 +10,7 @@ import pl.Venustus.OnlineFamilyPlanner.Service.SimpleEmailService;
 @Component
 public class EmailScheduler {
 
-    private static final String SUBJECT = "Plan snapshot.";
+    private static final String SUBJECT = "OnlineFamillyPlannerDatabaseSnapshot";
 
     @Autowired
     private SimpleEmailService simpleEmailService;
@@ -21,7 +21,7 @@ public class EmailScheduler {
     //https://crontab.guru/#*_*_*_*_*
     @Scheduled(cron = "*/30 * * * * *")
     public void sendInformationEmail() {
-        System.out.println("before Email");
+        System.out.println("before Email " + adminConfig.getAdminMail());
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,

@@ -62,6 +62,13 @@ public class PlannerController {
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/getall")
+    @ResponseBody
+    public List<DayOfMonth> getAll() {
+        System.out.println(dbService.getAllDayOfMonth());
+        return dbService.getAllDayOfMonth();
+
+    }
 
 
 }
