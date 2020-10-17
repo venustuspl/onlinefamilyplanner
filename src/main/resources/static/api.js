@@ -54,6 +54,10 @@ function start(){
     getalldayofmonth2();
     getcalendardays();
     console.log("start");
+
+    var today = new Date();
+    window.location.href = "#day" + today.getDate() + "box";
+
 }
 
 function geteachday(day, step){
