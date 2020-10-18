@@ -5,6 +5,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import pl.Venustus.OnlineFamilyPlanner.Configuration.AdminConfig;
 import pl.Venustus.OnlineFamilyPlanner.Domain.Mail;
+import pl.Venustus.OnlineFamilyPlanner.Service.DbService;
 import pl.Venustus.OnlineFamilyPlanner.Service.SimpleEmailService;
 
 @Component
@@ -18,16 +19,20 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
+    @Autowired
+    private DbService dbService;
 
-    @Scheduled(cron = "0 0 18 * * *")
+    //@Scheduled(cron = "0 0 18 * * *")
+
+    @Scheduled(cron = "*/10 * * * * *")
     public void sendInformationEmail() {
         System.out.println("before Email " + adminConfig.getAdminMail());
         simpleEmailService.send(new Mail(
-                adminConfig.getAdminMail(),
-                SUBJECT,
-                "Currently in database you got: ")
+                        adminConfig.getAdminMail(),
+                        SUBJECT, dbService.getAllDayOfMonth().toString()
+                )
         );
-        System.out.println("AferEmail");
+        System.out.println(dbService.getAllDayOfMonth().toString());
     }
 
 }
