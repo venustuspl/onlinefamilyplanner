@@ -51,7 +51,7 @@ public class SimpleEmailService {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setTo(mail.getMailTo());
             messageHelper.setSubject(mail.getSubject());
-            messageHelper.setText("Testowy text", true);
+            messageHelper.setText(mail.getMessage());
         };
     }
 
