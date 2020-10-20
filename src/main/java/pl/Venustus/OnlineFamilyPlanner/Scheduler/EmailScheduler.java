@@ -8,6 +8,9 @@ import pl.Venustus.OnlineFamilyPlanner.Domain.Mail;
 import pl.Venustus.OnlineFamilyPlanner.Service.DbService;
 import pl.Venustus.OnlineFamilyPlanner.Service.SimpleEmailService;
 
+import java.time.LocalDateTime;
+import java.util.stream.Collectors;
+
 @Component
 public class EmailScheduler {
 
@@ -22,17 +25,28 @@ public class EmailScheduler {
     @Autowired
     private DbService dbService;
 
+
+    public String makeMailText() {
+        String header = "Hello, \n we are sending daily update from http://onlinefamilyplanner.herokuapp.com: \n\n ";
+        String footer = "\n\n List was made on " + LocalDateTime.now();
+
+        return header +
+                dbService.getAllDayOfMonth().stream()
+                        .map(d -> d.toString() + "\n\n")
+                        .collect(Collectors.toList()).toString()
+                + footer;
+
+    }
     //@Scheduled(cron = "0 0 18 * * *")
 
     @Scheduled(cron = "*/10 * * * * *")
     public void sendInformationEmail() {
-        System.out.println("before Email " + adminConfig.getAdminMail());
         simpleEmailService.send(new Mail(
                         adminConfig.getAdminMail(),
-                        SUBJECT, dbService.getAllDayOfMonth().toString()
+                        SUBJECT, makeMailText()
                 )
         );
-        System.out.println(dbService.getAllDayOfMonth().toString());
+
     }
 
 }
