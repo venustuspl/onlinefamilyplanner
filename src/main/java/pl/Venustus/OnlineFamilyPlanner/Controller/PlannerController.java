@@ -47,7 +47,6 @@ public class PlannerController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "/save", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public DayOfMonth saveDayOfMonthDto(@RequestBody DayOfMonthDto dayOfMonthDto) {
-        emailScheduler.sendInformationEmail();
         return dbService.saveDayOfMonth(dayOfMonthMapper.mapToDaYMonth(dayOfMonthDto));
 
     }
@@ -72,7 +71,7 @@ public class PlannerController {
 
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/sendmail")
+    @RequestMapping(value = "/sendemail")
     public void sendEmailSummary() {
         emailScheduler.sendInformationEmail();
 
