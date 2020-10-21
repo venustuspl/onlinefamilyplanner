@@ -38,16 +38,15 @@ public class EmailScheduler {
                 + footer;
 
     }
-    //@Scheduled(cron = "0 0 18 * * *")
 
-    @Scheduled(cron = "0 0/10 11-12 * * *")
+    @Scheduled(cron = "0 0 11,19 * * *")
     public void sendInformationEmail() {
         simpleEmailService.send(new Mail(
                         adminConfig.getAdminMail(),
                         SUBJECT, makeMailText()
                 )
         );
-        System.out.println(adminConfig.getAdminMail() + " ");
+        System.out.println("Email was send.");
     }
 
 }
