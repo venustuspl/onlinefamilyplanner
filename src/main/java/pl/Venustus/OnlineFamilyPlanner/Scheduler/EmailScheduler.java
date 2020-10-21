@@ -39,14 +39,14 @@ public class EmailScheduler {
     }
     //@Scheduled(cron = "0 0 18 * * *")
 
-    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(cron = "*/10 * * * * *")
     public void sendInformationEmail() {
         simpleEmailService.send(new Mail(
                         adminConfig.getAdminMail(),
                         SUBJECT, makeMailText()
                 )
         );
-
+        System.out.println(adminConfig.getAdminMail() + " ");
     }
 
 }
