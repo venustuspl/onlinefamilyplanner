@@ -118,11 +118,9 @@ var datetime = new Date().toLocaleString();
     console.log(day);
     saveeachday(day);
 
-fetch('sendemail')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
 }
+
+fetch('sendemail')
 
 document.getElementById("savestatus").innerHTML = "Saved on: " + datetime;
 }
