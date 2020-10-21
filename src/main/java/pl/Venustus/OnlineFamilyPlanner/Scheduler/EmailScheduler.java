@@ -32,6 +32,7 @@ public class EmailScheduler {
 
         return header +
                 dbService.getAllDayOfMonth().stream()
+                        .sorted()
                         .map(d -> d.toString() + "\n\n")
                         .collect(Collectors.toList()).toString()
                 + footer;
