@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import pl.Venustus.OnlineFamilyPlanner.Configuration.AdminConfig;
+import pl.Venustus.OnlineFamilyPlanner.Domain.DayOfMonth;
 import pl.Venustus.OnlineFamilyPlanner.Domain.Mail;
 import pl.Venustus.OnlineFamilyPlanner.Service.DbService;
 import pl.Venustus.OnlineFamilyPlanner.Service.SimpleEmailService;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 
 @Component
@@ -32,6 +34,7 @@ public class EmailScheduler {
 
         return header +
                 dbService.getAllDayOfMonth().stream()
+                        .sorted(Comparator.comparing(DayOfMonth::getId))
                         .map(d -> d.toString() + "\n\n")
                         .collect(Collectors.toList()).toString()
                 + footer;

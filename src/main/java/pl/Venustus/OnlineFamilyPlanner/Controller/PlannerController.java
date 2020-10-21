@@ -72,6 +72,12 @@ public class PlannerController {
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/sendmail")
+    public void sendEmailSummary() {
+        emailScheduler.sendInformationEmail();
+
+    }
+
 
 }
 
