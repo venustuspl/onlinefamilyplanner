@@ -39,7 +39,7 @@ public class EmailScheduler {
     }
     //@Scheduled(cron = "0 0 18 * * *")
 
-    @Scheduled(cron = "0/10 * * * * *")
+    @Scheduled(cron = "0 0 11,19 * * *")
     public void sendInformationEmail() {
         simpleEmailService.send(new Mail(
                         adminConfig.getAdminMail(),
