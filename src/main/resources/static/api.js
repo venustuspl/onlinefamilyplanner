@@ -57,7 +57,7 @@ function start(){
 
     var today = new Date();
     window.location.href = "#day" + today.getDate() + "box";
-
+    console.log(today.getDate());
 }
 
 function geteachday(day, step){

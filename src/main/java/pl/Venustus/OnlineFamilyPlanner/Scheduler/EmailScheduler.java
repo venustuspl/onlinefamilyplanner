@@ -32,14 +32,13 @@ public class EmailScheduler {
 
         return header +
                 dbService.getAllDayOfMonth().stream()
-                        .sorted()
                         .map(d -> d.toString() + "\n\n")
                         .collect(Collectors.toList()).toString()
                 + footer;
 
     }
 
-    @Scheduled(cron = "0 0 11,19 * * *")
+    @Scheduled(cron = "0 0/10 11,13 * * *")
     public void sendInformationEmail() {
         simpleEmailService.send(new Mail(
                         adminConfig.getAdminMail(),
