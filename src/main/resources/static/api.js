@@ -1,5 +1,6 @@
 var day;
 var step;
+const monthtable = [];
 
 function createNode(element) {
     return document.createElement(element); // Create the type of element you pass in the parameters
@@ -8,6 +9,8 @@ function createNode(element) {
 function append(parent, el) {
     return parent.appendChild(el); // Append the second parameter(element) to the first one
 }
+
+
 
 function validateurl(url) {
     var reg = new RegExp( '(http|ftp|https)://[\\w-]+(\\.[\\w-]+)+([\\w-.,@?^=%&:/~+#-]*[\\w@?^=%&;/~+#-])?' );
@@ -81,6 +84,11 @@ fetch('getalldayofmonth')
             document.getElementById( "day" + rate.id + "status").value = rate.status;
             document.getElementById( "day" + rate.id + "description").value = rate.description;
             document.getElementById( "day" + rate.id + "note").value = rate.note;
+
+            var dayofmonth = {"id": rate.id, "status": rate.status,
+                    "description":  rate.description,
+                    "note": rate.note, "saved": rate.saved};
+
             i++;
                   })
     });
