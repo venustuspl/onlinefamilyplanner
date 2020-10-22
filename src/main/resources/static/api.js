@@ -1,6 +1,6 @@
 var day;
 var step;
-const monthtable = [];
+var monthtable = [31];
 
 function createNode(element) {
     return document.createElement(element); // Create the type of element you pass in the parameters
@@ -25,6 +25,18 @@ function validateemail(email) {
         return false;
     else
         return true;
+}
+
+
+function start(){
+    getalldayofmonth2();
+    getcalendardays();
+    console.log("start");
+
+    var today = new Date();
+    window.location.href = "#day" + today.getDate() + "box";
+    console.log(today.getDate());
+    savedatatest();
 }
 
 function getalldayofmonth(){
@@ -53,16 +65,6 @@ geteachday(day,step);
 }
 }
 
-function start(){
-    getalldayofmonth2();
-    getcalendardays();
-    console.log("start");
-
-    var today = new Date();
-    window.location.href = "#day" + today.getDate() + "box";
-    console.log(today.getDate());
-}
-
 function geteachday(day, step){
 fetch('getalldayofmonthbyeach?day=' + step)
     .then(response => response.text())
@@ -89,12 +91,14 @@ fetch('getalldayofmonth')
                     "description":  rate.description,
                     "note": rate.note, "saved": rate.saved};
 
+               //     console.log('month');
+            monthtable[rate.id] = dayofmonth;
+            //console.log(monthtable[rate.id].status);
             i++;
                   })
     });
 
 }
-
 function getcalendardays(){
 
     const now = new Date();
@@ -123,12 +127,21 @@ var datetime = new Date().toLocaleString();
     var day = {"id": step, "status": document.getElementById( "day" + step + "status").value,
         "description":  document.getElementById( "day" + step + "description").value,
         "note": document.getElementById( "day" + step + "note").value, "saved": datetime };
-    console.log(day);
+
+        console.log(' saving ' );
+         console.log(monthtable[step]);
+    if (document.getElementById( "day" + step + "description").value == monthtable[step].description){
+    console.log('rownee');
+    }
+    else {
+    console.log(' nierowne');
+
+    }
+
     saveeachday(day);
 
 }
-
-fetch('sendemail')
+fetch('sendemail');
 
 document.getElementById("savestatus").innerHTML = "Saved on: " + datetime;
 }
@@ -149,5 +162,16 @@ $.ajax({
 }
 
 
+function savedatatest() {
+var datetime = new Date().toLocaleString();
 
+    for (step = 1; step < 32; step++) {
+    var day = {"id": step, "status": document.getElementById( "day" + step + "status").value,
+        "description":  document.getElementById( "day" + step + "description").value,
+        "note": document.getElementById( "day" + step + "note").value, "saved": datetime };
 
+    saveeachday(day);
+
+}
+
+}
