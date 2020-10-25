@@ -133,9 +133,9 @@ var datetime = new Date().toLocaleString();
         //console.log(step);
         //console.log(' end saving -------------------');
 
-    if (document.getElementById( "day" + step + "status").value != monthtable[step].status)||
+    if ((document.getElementById( "day" + step + "status").value != monthtable[step].status)||
     (document.getElementById( "day" + step + "description").value != monthtable[step].description)||
-    (document.getElementById( "day" + step + "note").value != monthtable[step].note)  {
+    (document.getElementById( "day" + step + "note").value != monthtable[step].note) ) {
     console.log(' nierowne');
     console.log(step);
     saveeachday(day);
