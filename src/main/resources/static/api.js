@@ -122,23 +122,29 @@ class DayOfMonth {
 
 function savedata() {
 var datetime = new Date().toLocaleString();
-
+//console.clear();
     for (step = 1; step < 32; step++) {
     var day = {"id": step, "status": document.getElementById( "day" + step + "status").value,
         "description":  document.getElementById( "day" + step + "description").value,
         "note": document.getElementById( "day" + step + "note").value, "saved": datetime };
 
-        console.log(' saving ' );
-         console.log(monthtable[step]);
-    if (document.getElementById( "day" + step + "description").value == monthtable[step].description){
-    console.log('rownee');
+       // console.log(' saving ' );
+        //console.log(monthtable[step]);
+        //console.log(step);
+        //console.log(' end saving -------------------');
+
+    if (document.getElementById( "day" + step + "status").value != monthtable[step].status)||
+    (document.getElementById( "day" + step + "description").value != monthtable[step].description)||
+    (document.getElementById( "day" + step + "note").value != monthtable[step].note)  {
+    console.log(' nierowne');
+    console.log(step);
+    saveeachday(day);
+
     }
     else {
-    console.log(' nierowne');
+    console.log(' rowne');
 
     }
-
-    saveeachday(day);
 
 }
 fetch('sendemail');
