@@ -148,8 +148,9 @@ var datetime = new Date().toLocaleString();
 
 }
 fetch('sendemail');
-
+window.location.reload(true);
 document.getElementById("savestatus").innerHTML = "Saved on: " + datetime;
+
 }
 
 
