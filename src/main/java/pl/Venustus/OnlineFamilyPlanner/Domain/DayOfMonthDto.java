@@ -18,6 +18,4 @@ public class DayOfMonthDto {
     private String note;
 
     private String saved;
-
-
 }

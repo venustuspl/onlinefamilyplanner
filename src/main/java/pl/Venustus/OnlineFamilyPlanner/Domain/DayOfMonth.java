@@ -17,7 +17,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "Day")
 public class DayOfMonth {
-
     @Id
     private Long id;
 

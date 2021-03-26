@@ -12,5 +12,4 @@ import java.util.List;
 @AllArgsConstructor
 public class CurrentMonth {
     private List<DayOfMonth> dayList = new ArrayList();
-
 }

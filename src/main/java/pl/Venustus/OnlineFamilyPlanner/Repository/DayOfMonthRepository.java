@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface DayOfMonthRepository extends CrudRepository<DayOfMonth, Long> {
-
     @Override
     DayOfMonth save(DayOfMonth dayOfMonth);
 
@@ -19,7 +18,5 @@ public interface DayOfMonthRepository extends CrudRepository<DayOfMonth, Long> {
 
     Optional<DayOfMonth> findAllById(Long id);
 
-
     void deleteAll();
-
 }

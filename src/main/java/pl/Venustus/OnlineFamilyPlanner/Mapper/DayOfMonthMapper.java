@@ -13,5 +13,4 @@ public class DayOfMonthMapper {
     public DayOfMonth mapToDaYMonthList(final DayOfMonthDto d) {
         return new DayOfMonth(d.getId(), d.getStatus(), d.getDescription(), d.getNote(), d.getSaved());
     }
-
 }

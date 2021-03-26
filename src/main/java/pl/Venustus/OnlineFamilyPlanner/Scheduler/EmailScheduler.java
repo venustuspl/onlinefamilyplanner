@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 @Component
 public class EmailScheduler {
-
     private static final String SUBJECT = "OnlineFamillyPlannerDatabaseSnapshot";
 
     @Autowired
@@ -38,7 +37,6 @@ public class EmailScheduler {
                         .map(d -> d.toString() + "\n\n")
                         .collect(Collectors.toList()).toString()
                 + footer;
-
     }
 
     @Scheduled(cron = "0 0/10 11,13 * * *")
@@ -50,5 +48,4 @@ public class EmailScheduler {
         );
         System.out.println("Email was send.");
     }
-
 }

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Getter
 @NoArgsConstructor
 public class AdminConfig {
-
     @Value("${admin.mail}")
     private String adminMail;
 
@@ -18,7 +17,6 @@ public class AdminConfig {
 
     @Value("${info.app.name}")
     private String companyName;
-
 }
 
 
